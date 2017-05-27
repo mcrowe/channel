@@ -1,6 +1,6 @@
 {
   "name": "@mcrowe/channel",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Basic event channel for Typescript",
   "author": "Mitch Crowe <code@mitchcrowe.com> (http://www.mitchcrowe.com)",
   "license": "ISC",

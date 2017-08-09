@@ -1,20 +1,16 @@
-function pull<T>(xs: T[], x: T) {
-  const idx = xs.indexOf(x)
-  if (idx > -1) {
-    xs.splice(idx, 1)
-  }
+import { pull } from './util'
+
+
+export interface IListener<T> {
+  (val: T): void
 }
 
 
-class Channel {
+export default class Channel<T> {
 
-  listeners: Function[]
+  listeners: IListener<T>[] = []
 
-  constructor() {
-    this.listeners = []
-  }
-
-  subscribe(fn: Function) {
+  subscribe(fn: IListener<T>) {
     this.listeners.push(fn)
 
     // Return an unsubscribe function.
@@ -23,13 +19,10 @@ class Channel {
     }
   }
 
-  broadcast(val?) {
+  publish(val: T) {
     this.listeners.forEach(fn => {
       fn(val)
     })
   }
 
 }
-
-
-export default Channel

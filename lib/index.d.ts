@@ -1,7 +1,8 @@
-declare class Channel {
-    listeners: Function[];
-    constructor();
-    subscribe(fn: Function): () => void;
-    broadcast(val?: any): void;
+export interface IListener<T> {
+    (val: T): void;
 }
-export default Channel;
+export default class Channel<T> {
+    listeners: IListener<T>[];
+    subscribe(fn: IListener<T>): () => void;
+    publish(val: T): void;
+}

@@ -24,5 +24,6 @@
     "test": "ava",
     "watch": "tsc -w"
   },
+  "typings": "lib/index",
   "version": "0.0.3"
 }
